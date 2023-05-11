@@ -2,14 +2,12 @@
 let doneButton = document.getElementById("done");
 let fillButton = document.getElementById("fill");
 let inputs = document.getElementsByTagName("input");
+let audio = document.querySelector("#audioButton");
 
-// // when the numbers are clicked, we will make sure they are stored somewhere. What we can do is create a matrix and replace the 
-// // respective corresponding values of the bumbers in the gird system with the matrix with the value true. SO true is basicaly  the crossed numbers.z
-// let matrix = [[false,false,false,false,false],
-//               [false,false,false,false,false],
-//               [false,false,false,false,false],
-//               [false,false,false,false,false],
-//               [false,false,false,false,false]] ;
+// Makes the input field read only.
+
+$("input").prop('readonly', true);
+
 
 var isDone= false;        
 //isDone checks whether the elements are set to non editable or not.
@@ -18,6 +16,8 @@ var isDone= false;
 doneButton.addEventListener('click', done);
 function done(){ 
     $(".fill").css("display","none");
+    $(".done").css("display","none");
+
     doneButton.style.backgroundColor = 'red';
     isDone = true;
     for (let i= 0; i<25; i++){
@@ -33,16 +33,8 @@ if(isDone){
     for(let i = 0; i < inputs.length; i++){  
         inputs[i].addEventListener('click',function(){
                 inputs[i].style.backgroundColor = 'purple';
-                // this gets the index of the cell we click, i.e row and column,
-                let row = (inputs[i].getAttribute('row-index'));
-                let column = (inputs[i].getAttribute('column-index'));
-                let jsonObject;
-                // calls the api function in api.js
-                // apiCall(row,column);
-                //checkWinner();
-                //matrix[row][column] = true;
-                // run the algorithm to check if the game has a winner or not.
-            
+                audio.playbackRate = 2;
+                audio.play();
                 
             });
     }
@@ -66,10 +58,8 @@ function fill(){
             //inputs[i].value='0';
             inputs[i].setAttribute('value',listOfNumbers[i]);
         }
-
     }).catch(function(error){
         console.log(error);
         console.log("Error in fill function")
     })
-     
 }

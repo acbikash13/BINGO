@@ -1,7 +1,7 @@
 var path =require('path')
 const express=require('express');
 const bodyParser = require('body-parser');
-// const cookieParser=require('cookie-parser');
+const cookieParser=require('cookie-parser');
 const app = express();
 const port= 3000;
 const url=require('url');
@@ -109,8 +109,7 @@ app.post('/api/auth/login',(req,res)=>{
 						if (err) throw err
 						const redirectUrl = `/joinhostGame?username=${encodeURIComponent(username)}`
 						res.status(201).json({message:'User authenticated and redirected to game page', redirect: redirectUrl});
-
-						
+						res.cookie('email', result[0].email, { maxAge: 900000, httpOnly: true });						
 					})
 				}
 			}
@@ -198,13 +197,14 @@ app.get('/game/getNumbers',function(req,res){
 
 // create game
 app.post('/api/hostGame', (req, res) => {
+	const email = req.cookies.email;
 	const gameDocument = {
 	  "game": {
 		"gameId": req.body.gameId,
 		"numbers": [],
 		"users": [
 		  {
-			"username": req.body.username,
+			"username": email,
 			"playerState": [
 			  [0, 0, 0, 0, 0],
 			  [0, 0, 0, 0, 0],
@@ -234,43 +234,42 @@ app.post('/api/hostGame', (req, res) => {
 	  });
 	});
 	
-	
-	app.post('/api/joinGame',(req,res)=>{
-			// join game
-			app.post('/api/joinGame', (req, res) => {
-				const gameCode = req.body.gameID;
-				const username = req.body.username;
-				  if (err) res.send(err);
-					res.send("res entered")
-				  const games = database.collection('Games');
-				  
-				  games.findOne({gameId: gameCode}, (err, game) => {
-					if (err) throw err;
-					if (game.length==0) {
-					  res.status(404).send('Game not found');
-					} else {
-					  const newUser = {
-						username: username,
-						playerState: [
-						  [0, 0, 0, 0, 0],
-						  [0, 0, 0, 0, 0],
-						  [0, 0, 0, 0, 0],
-						  [0, 0, 0, 0, 0],
-						  [0, 0, 0, 0, 0]
-						],
-						gameWin: false,
-						bingocount: 0
-					  };
-					  game.users.push(newUser);
-					  games.replaceOne({gameId: gameCode}, game, (err, result) => {
-						if (err) throw err;
-						res.status(201).json({message:'Successfully joined the game', redirect: '/game'})
-					  });
-					}
-				  });
-				
-			  });
-		})
+	// join game
+	app.post('/api/joinGame', (req, res) => {
+		const email = req.cookies.email;
+		const gameCode = req.body.gameID;
+		const username = email;
+			if (err) res.send(err);
+			res.send("res entered")
+			const games = database.collection('Games');
+			
+			games.findOne({gameId: gameCode}, (err, game) => {
+			if (err) throw err;
+			if (game.length==0) {
+				res.status(404).send('Game not found');
+			} else {
+				const newUser = {
+				username: username,
+				playerState: [
+					[0, 0, 0, 0, 0],
+					[0, 0, 0, 0, 0],
+					[0, 0, 0, 0, 0],
+					[0, 0, 0, 0, 0],
+					[0, 0, 0, 0, 0]
+				],
+				gameWin: false,
+				bingocount: 0
+				};
+				game.users.push(newUser);
+				games.replaceOne({gameId: gameCode}, game, (err, result) => {
+				if (err) throw err;
+				res.status(201).json({message:'Successfully joined the game', redirect: '/game'})
+				});
+			}
+			});
+		
+		});
+
 
 
 
