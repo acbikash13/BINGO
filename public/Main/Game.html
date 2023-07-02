@@ -8,278 +8,281 @@
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="../CSS/style2.css"> -->
     <style>
-        .menu{
-            border-radius: 50px;
-            background-color: rgb(97, 81, 112);
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    button{
+        border: white;
+        border-radius: 20px;
+        padding: 15px;
+        
+    }
+    .displayNumber{
+        border-radius:30px ;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: rgba(224, 10, 10, 0.25) 0px 30px 60px -12px , rgba(180, 16, 16, 0.3) 0px 50px 36px -18px inset;
 
-        }
-        .menu-items {
-            display: flex;
-            justify-content: space-around;
-           
-    
-        }
-       .menu-buttons {
-            border-radius: 50px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-        }  
-        button{
-            border: white;
-            border-radius: 30px;
-            width: 80px;
-            height: 60px;
-            margin-bottom: 5px;
-           
-        }
-        .players-name {
+    }
+    .display-1 {
+        font-weight: 400;
+        font-family:fantasy;
+    }
+    /* Css for Chat Box */
+    .chat{
+        position: relative;
+    }
+      .chatbox{
+        bottom: 0;
+    }
+        .chatArea{
+            height: 200px;
             width: 100%;
-            display: flex;
-            flex-direction: center;
-            justify-content: flex-start;
-            flex-direction: column;
+            padding: 5px;
+            overflow-y: auto;
+            background: white;
+            border-radius: 3px;
+            color: rgba(0, 0, 0, 0);
+            -webkit-text-fill-color: black;
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+        }
+        *::-webkit-scrollbar,
+        *::-webkit-scrollbar-thumb {
+            width: 26px;
+            border-radius: 13px;
+            background-clip: padding-box;
+            border: 10px solid transparent;
+        }
 
+        *::-webkit-scrollbar-thumb {        
+            box-shadow: inset 0 0 0 10px;
         }
         .gameBoard{
-            height: 70%;
-            border-radius: 50px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-        }
-        .boxes {
-            height: 100px;
-            border: none;
-            
-        }
-        input{
-            font-size: 4vw;
-            font-weight: 100;
-            font-family: 'Libre Baskerville', serif; 
             height: 100%;
-            width: 70%;
-            border: none;
-            border-radius: 35px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-            
+            width: 80%;
         }
-        .players-info{
-            border-radius: 50px;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-        }
-        p {
-            font-size: 20px;
-        }
-        .displayNumber {
-            height: 120px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
+    input{
+        font-size: 4vw;
+        font-weight: 100;
+        font-family: 'Libre Baskerville', serif; 
+        height: 100%;
+        width: 60%;
+        border: none;
+        border-radius: 35px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
         
-        }
-      /*  this css is for the input field removing arrows that ups or downs the numbers */
+    }
+    .players-info{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 
-        /* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-        }
+    }
+    p {
+        font-size: 20px;
+    }
 
-        /* Firefox */
-        input[type=number] {
+    /*  this css is for the input field removing arrows that ups or downs the numbers */
+
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    }
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
         -moz-appearance: textfield;
-        }/* Chrome, Safari, Edge, Opera */
-        input::-webkit-outer-spin-button,
-        input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
+        appearance: textfield;
+        text-align: center;  
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+    }
+    input:not(#inlineFormInput):hover, #exit:hover,#fill:hover, #done:hover {
+        background-color: rgba(79,209,197,1);
+        cursor: pointer;
+        transform: scale(1.3);
+        box-shadow: 0 0 10px rgba(123, 40, 40, 0.5);
+    }
+    /* css for menu butons */
+    .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         }
 
-        /* Firefox */
-        input[type=number] {
-            -moz-appearance: textfield;
-            text-align: center;  
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
-
+    .button {
+        background:   rgba(89, 184, 174, 0.64);
+        background: linear-gradient(90deg, rgba(129,230,217,1) 0%, rgba(79,209,197,1) 100%);
+        box-shadow: 12px 12px 24px rgba(89, 184, 174, 0.64);
+        transition: all 0.3s ease-in-out 0s;
+        cursor: pointer;
+        outline: none;
+        position: relative;
         }
-        input:hover, #exit:hover,#fill:hover, #done:hover {
-            background-color: rgb(252, 75, 6);
-            cursor: pointer;
-            transform: scale(1.3);
-            box-shadow: 0 0 10px rgba(123, 40, 40, 0.5);
+    
+    button::before {
+    content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: all .3s ease-in-out 0s;
+    }
+
+    
+    button::after {
+        content: '';
+        border-radius: 100%;
+        border: 20px solid  rgb(252, 75, 6);
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: ring 1.5s infinite;
+    }
+    
+    
+    @keyframes ring {
+        0% {
+        width: 30px;
+        height: 30px;
+        opacity: 1;
         }
-
-
-
-        /* Css for Displaying the bingo number Animation*/
-        .wrapper.two {
-            font-family: "Play", sans-serif;
+        100% {
+        width: 100px;
+        height: 100px;
+        opacity: 0;
         }
-        .neon h3 {
-            margin: 1rem auto;
-            animation: neon 1s ease infinite;
-            }
-        @keyframes neon {
-            0%,
-            100% {
-                text-shadow: 0 0 10px #ef00e3a8, 0 0 20px #ef00e3a8, 0 0 20px #ef00e3a8, 0 0 20px #ef00e3a8, 0 0 2px #fed128, 2px 2px 2px #806914;
-                color: #f5efcb;
-            }
-            50% {
-                text-shadow: 0 0 2px #800e0b, 0 0 5px #800e0b, 0 0 5px #800e0b, 0 0 5px #800e0b, 0 0 2px #800e0b, 4px 4px 2px #40340a;
-                color: #eda0d3;
-            }
-        }
-
-         /* Css for Displaying the bingo number Animation*/
+    }
+    /* css for menu butons */
+    #inlineFormInput{
+        border-radius: 0px;
+        font-size: 16px;
+        height: 40px;
+        margin:10px;
         
+
+    }
+  
+
+   
     </style>
 </head>
-<body>
-    <div class="container menu">
-        <div class="row menu-items mt-2 p-2">
-            <div class="col-3 col-md-3 col-sm-3">
-                <div class="row p-3  text-center menu-buttons">
-                    <div class="col-12 col-md-12 col-sm-12 fill"><button class="shadow-lg" id="fill">Fill</button></div>
-                    <div class="col-12 col-md-12 done col-sm-12"><button class="shadow-lg" id="done">Done</button></div>
-                    <div class="col-12 col-md-12 exit col-sm-12"><button class="shadow-lg" id="exit">Exit</button></div>
+<body class="bg-dark">
+    <div class="container-fluid p-3  menu">
+        <div class="row menu-items p-3">
+            <div class="col-4">
+                <div class="row text-center gy-1">
+                    <div class="col-lg-3  col-md-3 col-sm-12 fill wrap"><button class="shadow-lg button" id="fill">Fill</button></div>
+                    <div class="col-lg-3 col-md-3 done col-sm-12 wrap"><button class="shadow-lg button" id="done">Done</button></div>
+                    <div class="col-lg-3 col-md-3 exit col-sm-12 wrap"><button class="shadow-lg button" id="exit">Exit</button></div>
                 </div>
             </div>
-            <div class="col-2 col-md-2 col-sm-2  displayNumber bg-white">
-                <div class="wrapper two ">
-                    <div class="neon text-center">
-                        <h1 class="display-1">6</12>
+            <div class="col-2 m-4 displayNumber bg-white">
+                <div class="text-center align-middle">
+                        <h1 class="display-1">{BN}</h1>
+                </div>
+            </div>
+            <div class="col-4  players-info bg-light  rounded shadow-lg text-center">
+                <div class="row players-name p-2">
+                    <div class="col-6 p-2">
+                        <p class="text-center text-primary rounded bg-light"> {user}: BINGO</p>
+                    </div>
+                    <div class="col-6 p-2">
+                        <p class="text-center text-primary rounded bg-light"> {user}: BINGO</p>
+                    </div>
+                    <div class="col-6 p-2">
+                        <p class="text-center text-primary rounded bg-light"> {user}: BINGO</p>
+                    </div>
+                    <div class="col-6 p-2">
+                        <p class="text-center text-primary rounded bg-light"> {user}: BINGO</p>
                     </div>
                 </div>
             </div>
-            <div class="col-3 col-md-3 players-info  text-center col-sm-3">
-                <!-- <div class="row">
-             
-                </div> -->
-
-                <!-- <p class="players-score">player1</p>
-                <p class="players-score">player2</p>
-                <p class="players-score">Player3</p>
-                <p class="players-score">Player4</p>
-                <p class="players-score">Player5</p> -->
-
-                <!-- <div class="row bg-light">
-                    <div class="col-12 text-center">
-                        <div class="name">Bikash</div>
-                        <div class="score">BINGO</div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row p-1">
+            <div class="chat col-3  rounded">
+                <div class="chatbox m-1 row">
+                    <div class="col-12 p-0">
+                        <div class="chatArea">
+                           
+                        </div>
+                    </div>
+                    <div class="textbox">
+                        <form>
+                            <div class="form-row align-items-center">
+                                <div class="col-auto mt-1">
+                                    <input maxlength="250" type="text" class="mb-2" placeholder="message" id="inlineFormInput">
+                                    <button id="Send"  type="submit" class="btn btn-info mb-2">Send</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                    <div class="col-3 col-md-3 col-sm-12 text-center">Name2</div>
-                    <div class="col-3 col-md-3 col-sm-12 text-center">Name3</div>
-                    <div class="col-3 col-md-3 col-sm-12 text-center">Name4</div>
-                </div> -->
+            </div>
+            <div class="col-9">
+                <div class="container-fluid text-center mx-auto my-auto mb-2 text-center gameBoard">
+                    <div class="row d-flex justify-content-center ">
+                      <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                      <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                      <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                      <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                      <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                    </div>
+                    <div class="row d-flex justify-content-center  pt-1">
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                      </div>
+                      <div class="row d-flex justify-content-center pt-1">
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                      </div>
+                      <div class="row d-flex justify-content-center pt-1">
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                      </div>
+                      <div class="row d-flex justify-content-center pt-1 pb-1">
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                        <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
+                      </div>
+                  </div>
             </div>
         </div>
     </div>
-    <div class="container text-center mx-auto my-auto mb-2 p-4 text-center gameBoard">
-        <div class="row d-flex justify-content-center ">
-          <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-          <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-          <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-          <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-          <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-        </div>
-        <div class="row d-flex justify-content-center  pt-1">
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-          </div>
-          <div class="row d-flex justify-content-center pt-1">
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-          </div>
-          <div class="row d-flex justify-content-center pt-1">
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-          </div>
-          <div class="row d-flex justify-content-center pt-1 pb-1">
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-            <div class="col-2 boxes col-sm-2 col-md-2"><input type="number" class="fields"></div>
-          </div>
-      </div>
-      
-
-
-
-    <!-- <div class="container menu mx-auto">
-        <div class="row mx-auto menu-items">
-            <div class="col-3 fill"><button id="fill">Fill</button></div>
-            <div class="col-3 doneBackground"><button id="done">Done</button></div>
-
-        </div>
-    </div> -->
-
-
-
-
-
-
-
-
-<!-- 
-
-    <div class="container gameBoard mx-auto">
-        <div class="row mx-auto rows text-center">
-            <div class="col-2 boxes"><input pattern="[1-9]|1[0-9]|2[0-5]" row-index="0" column-index="0" type="number"
-                    class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="0" column-index="1" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="0" column-index="2" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="0" column-index="3" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="0" column-index="4" type="number" class="fileds"></div>
-        </div>
-        <div class="row rows text-center mx-auto">
-            <div class="col-2 boxes"><input row-index="1" column-index="0" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="1" column-index="1" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="1" column-index="2" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="1" column-index="3" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="1" column-index="4" type="number" class="fileds"></div>
-        </div>
-        <div class="row mx-auto text-center rows">
-            <div class="col-2 boxes"><input row-index="2" column-index="0" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="2" column-index="1" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="2" column-index="2" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="2" column-index="3" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="2" column-index="4" type="number" class="fileds"></div>
-        </div>
-        <div class="row mx-auto text-center rows">
-            <div class="col-2 boxes"><input row-index="3" column-index="0" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="3" column-index="1" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="3" column-index="2" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="3" column-index="3" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="3" column-index="4" type="number" class="fileds"></div>
-        </div>
-        <div class="row mx-auto  text-center rows">
-            <div class="col-2 boxes"><input row-index="4" column-index="0" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="4" column-index="1" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="4" column-index="2" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="4" column-index="3" type="number" class="fileds"></div>
-            <div class="col-2 boxes"><input row-index="4" column-index="4" type="number" class="fileds"></div>
-        </div>
-    </div> -->
-
-    <audio id="audioButton" src="../audio/1.wav" autoplay></audio>
+    
+    <audio id="audioButton" src="../audio/2.wav" autoplay></audio>
+    <audio class="bg-danger"  id="gameAudio"  src="../audio/Fluffing-a-Duck.mp3" autoplay loop></audio>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>

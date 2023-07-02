@@ -23,6 +23,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 // app.use(cookieParser());
 var database = null;
+console.log("test")
 client.connect(function(err,db) {
 	if (err) throw err
 	console.log("Connected to the database");
@@ -109,12 +110,13 @@ app.post('/api/auth/login',(req,res)=>{
 						if (err) throw err
 						const redirectUrl = `/joinhostGame?username=${encodeURIComponent(username)}`
 						res.status(201).json({message:'User authenticated and redirected to game page', redirect: redirectUrl});
-						res.cookie('email', result[0].email, { maxAge: 900000, httpOnly: true });						
+						// res.cookie('email', result[0].email, { maxAge: 900000, httpOnly: true });						
 					})
 				}
 			}
 		})
 });
+
 
 //This code block gets the playerState for a user. PlayerState is the game board state for each user
 app.get("/api/games/:game_id/:user_name", function(req,res){
@@ -318,34 +320,6 @@ app.post('/api/hostGame', (req, res) => {
 	// app.put('/api/games/gameid',(req,res)=>{
 	
 	// })
-// async function connect(){
-// 	let connection=await client.connect()
-// 	return connection
-// }
-// async function insert(db,database,collection,document){
-//   let dbo=db.db(database)
-//   let result=await dbo.collection(collection).insertOne(document)
-//   console.log(result)
-//   return result;
-// }
-// async function find(db,database,collection,criteria){
-//   let dbo=db.db(database)
-//   let result=await dbo.collection(collection).find(criteria).toArray()
-//   //console.log(result)
-//   return result;
-// }
-// async function start(){
-// 	db=await connect()
-// 	console.log('mongoDB connected')
-// 	app.listen(port,()=>{
-// 	  console.log(`Example app listening on port ${port}`)
-// 	})
-// }
-// start()
-
-/* WEB routes */
-
-
 
 
 
@@ -366,7 +340,7 @@ app.post('/api/hostGame', (req, res) => {
 	// 	  }
 	
 	// 	  if (result) {
-	// 		client.close();
+	// 		client.close(); 
 	// 		return res.status(409).json({ message: 'Email already exists' });
 	// 	  }
 	
